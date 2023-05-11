@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/deepaksinghvi/cdule/pkg"
+	"github.com/misoboy/cdule/pkg"
 
 	log "github.com/sirupsen/logrus"
 	"gorm.io/driver/mysql"
