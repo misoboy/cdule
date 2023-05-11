@@ -1,4 +1,4 @@
-module github.com/misoboy/cdule
+module github.com/deepaksinghvi/cdule
 
 go 1.18
 
