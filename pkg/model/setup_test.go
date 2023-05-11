@@ -12,7 +12,7 @@ func Test_ConnectDatabase(t *testing.T) {
 	param := []string{"../../resources", "config_in_memory", "Info"} // default path for resource
 	cduleConfig, err := ConnectDataBase(param)
 	require.NoError(t, err)
-	require.NotEqual(t, pkg.EMPTYSTRING, cduleConfig.Dburl)
+	require.NotEqual(t, pkg.EMPTYSTRING, cduleConfig.Database.Url)
 }
 
 func Test_ConnectDatabaseFailedToReadConfig(t *testing.T) {

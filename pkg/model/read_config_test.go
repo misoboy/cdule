@@ -11,16 +11,16 @@ func Test_ReadConfigInMemory(t *testing.T) {
 	param := []string{"../../resources", "config_in_memory"}
 	cduleConfig, err := readConfig(param)
 	require.NoError(t, err)
-	require.Equal(t, string(pkg.MEMORY), cduleConfig.Cduletype)
-	require.Equal(t, "/Users/dsinghvi/sqlite.db", cduleConfig.Dburl)
+	require.Equal(t, string(pkg.MEMORY), cduleConfig.Cdule.Type)
+	require.Equal(t, "/Users/dsinghvi/sqlite.db", cduleConfig.Database.Url)
 }
 
 func Test_ReadConfigInDB(t *testing.T) {
 	param := []string{"../../resources", "config"}
 	cduleConfig, err := readConfig(param)
 	require.NoError(t, err)
-	require.Equal(t, string(pkg.DATABASE), cduleConfig.Cduletype)
-	require.Equal(t, "postgres://cduleuser:cdulepassword@localhost:5432/cdule?sslmode=disable", cduleConfig.Dburl)
+	require.Equal(t, string(pkg.DATABASE), cduleConfig.Cdule.Type)
+	require.Equal(t, "postgres://cduleuser:cdulepassword@localhost:5432/cdule?sslmode=disable", cduleConfig.Database.Url)
 }
 
 func Test_ReadConfig_InvalidConfigPath(t *testing.T) {
