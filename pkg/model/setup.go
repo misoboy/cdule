@@ -39,14 +39,14 @@ func ConnectDataBase(param []string) (*pkg.CduleConfig, error) {
 	}
 	printConfig(cduleConfig)
 	var db *gorm.DB
-	if cduleConfig.Cduletype == string(pkg.DATABASE) {
-		if strings.Contains(cduleConfig.Dburl, "postgres") {
-			db = postgresConn(cduleConfig.Dburl)
-		} else if strings.Contains(cduleConfig.Dburl, "mysql") {
-			db = mysqlConn(cduleConfig.Dburl)
+	if cduleConfig.Cdule.Type == string(pkg.DATABASE) {
+		if cduleConfig.Database.Type == "postgres" {
+			db = postgresConn(cduleConfig.Database.Url)
+		} else if cduleConfig.Database.Type == "mysql" {
+			db = mysqlConn(cduleConfig.Database.Url)
 		}
-	} else if cduleConfig.Cduletype == string(pkg.MEMORY) {
-		db = sqliteConn(cduleConfig.Dburl)
+	} else if cduleConfig.Cdule.Type == string(pkg.MEMORY) {
+		db = sqliteConn(cduleConfig.Database.Url)
 	}
 
 	logLevel := logger.Error

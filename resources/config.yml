@@ -1,3 +1,10 @@
-cduletype: DATABASE
-dburl: postgres://cduleuser:cdulepassword@localhost:5432/cdule?sslmode=disable
-cduleconsistency: AT_MOST_ONCE
+cdule:
+  # DATABASE, MEMORY
+  type: DATABASE
+  consistency: AT_MOST_ONCE
+
+database:
+  type: mysql
+  url: mysql://root:root@localhost:5432/sample?charset=utf8&parseTime=True&loc=Local
+  maxIdleConnections: 10
+  maxOpenConnections: 100

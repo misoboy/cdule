@@ -2,7 +2,18 @@ package pkg
 
 // CduleConfig cdule configuration
 type CduleConfig struct {
-	Cduletype        string `yaml:"cduletype"`
-	Dburl            string `yaml:"dburl"` // underscore creates the problem for e.f. db_url, so should be avoided
-	Cduleconsistency string `yaml:"cduleconsistency"`
+	Cdule    cdule    `yaml:"cdule"`
+	Database database `yaml:"database"`
+}
+
+type cdule struct {
+	Type        string `yaml:"type"`
+	Consistency string `yaml:"consistency"`
+}
+
+type database struct {
+	Type               string `yaml:"type"`
+	Url                string `yaml:"url"`
+	MaxIdleConnections int    `yaml:"maxIdleConnections"`
+	MaxOpenConnections int    `yaml:"maxOpenConnections"`
 }
